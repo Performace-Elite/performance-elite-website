@@ -1,0 +1,479 @@
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+
+const sections = [
+  {
+    title: 'Data-Driven Tryout Systems',
+    text: 'Objective, defensible systems that reduce parent conflict, improve roster accuracy, and give Mid-Atlantic clubs a repeatable process they can trust.',
+  },
+  {
+    title: 'Club Operations Audits',
+    text: 'Operational reviews focused on tryout integrity, staffing, communication, facility utilization, and program efficiency.',
+  },
+  {
+    title: 'Implementation Support',
+    text: 'Hands-on advisory support to help clubs roll out stronger systems with clarity, accountability, and consistency.',
+  },
+];
+
+const problems = [
+  'Inconsistent evaluations',
+  'Parent complaints and disputes',
+  'No structured scoring system',
+  'Weak documentation and defensibility',
+];
+
+const outcomes = [
+  'Reduced parent conflict',
+  'Improved roster accuracy',
+  'Standardized coach evaluations',
+  'Repeatable systems year over year',
+];
+
+const mistakes = [
+  'Lack of objective scoring rubrics',
+  'No coach calibration before tryouts',
+  'Inconsistent weighting by age or level',
+  'Poor parent communication',
+  'Roster decisions based on gut feeling',
+  'No evaluator variance tracking',
+  'No post-tryout debrief process',
+];
+
+const pricing = [
+  {
+    name: 'Pilot Package',
+    price: '$2,500',
+    intro: '$2,000 Intro Offer',
+    desc: 'Ideal for initial implementation with a focused system rollout.',
+  },
+  {
+    name: 'Full Package',
+    price: '$3,500',
+    intro: '$3,000 Intro Offer',
+    desc: 'Complete tryout system build with guidance and customization.',
+    featured: true,
+  },
+  {
+    name: 'Monthly Retainer',
+    price: '$2,000/mo',
+    intro: '$1,500/mo Intro',
+    desc: 'Ongoing implementation, advisory, and operational support.',
+  },
+];
+
+function VolleyballGraphic({ className = 'logo-ball', dark = false }) {
+  return (
+    <svg viewBox="0 0 120 120" className={className} fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="60" cy="60" r="54" className={dark ? 'fill-dark' : 'fill-gold'} />
+      <circle cx="60" cy="60" r="52" className={dark ? 'stroke-gold' : 'stroke-dark'} strokeWidth="4" />
+      <path d="M60 8C75 24 82 42 82 60C82 78 75 96 60 112" className={dark ? 'stroke-soft' : 'stroke-white'} strokeWidth="4" strokeLinecap="round" />
+      <path d="M28 18C42 30 50 46 50 60C50 74 42 90 28 102" className={dark ? 'stroke-soft' : 'stroke-dark'} strokeWidth="4" strokeLinecap="round" />
+      <path d="M92 18C78 30 70 46 70 60C70 74 78 90 92 102" className={dark ? 'stroke-soft' : 'stroke-dark'} strokeWidth="4" strokeLinecap="round" />
+      <path d="M12 50C28 44 44 42 60 42C76 42 92 44 108 50" className={dark ? 'stroke-soft' : 'stroke-dark'} strokeWidth="4" strokeLinecap="round" />
+      <path d="M12 70C28 76 44 78 60 78C76 78 92 76 108 70" className={dark ? 'stroke-soft' : 'stroke-dark'} strokeWidth="4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function PhotoCard({ title, subtitle, tone = 'dark' }) {
+  return (
+    <div className={`photo-card ${tone === 'dark' ? 'photo-dark' : 'photo-light'}`}>
+      <div className="photo-graphic">
+        <div className="photo-ball-wrap">
+          <VolleyballGraphic className="photo-ball" dark={tone === 'dark'} />
+        </div>
+        <div className="photo-plate" />
+        <div className="photo-overlay" />
+        <div className="photo-copy">
+          <div className="photo-title">{title}</div>
+          <div className="photo-subtitle">{subtitle}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CourtGraphic() {
+  return (
+    <div className="court-card">
+      <div className="court-outline" />
+      <div className="court-midline" />
+      <div className="court-quarter left" />
+      <div className="court-quarter right" />
+      <div className="court-centerline" />
+      <div className="court-center-copy">
+        <VolleyballGraphic className="court-ball" />
+        <div className="court-tag">Structured Club Systems</div>
+      </div>
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <header className="site-header">
+      <div className="container header-inner">
+        <div className="brand-wrap">
+          <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="brand-logo" />
+          <div>
+            <div className="brand-name">Performance Elite Volleyball Consulting</div>
+            <div className="brand-tag">Mid-Atlantic Club Performance</div>
+          </div>
+        </div>
+        <a href="#contact" className="btn btn-dark">Book a Call</a>
+      </div>
+    </header>
+  );
+}
+
+function HomePage() {
+  return (
+    <div className="page-shell">
+      <Header />
+      <main>
+        <section className="hero-section">
+          <div className="hero-orb orb-right" />
+          <div className="hero-orb orb-left" />
+          <div className="hero-ball ball-right"><VolleyballGraphic className="hero-ball-svg" /></div>
+          <div className="hero-ball ball-left"><VolleyballGraphic className="hero-ball-svg large" dark /></div>
+
+          <div className="container hero-grid">
+            <div>
+              <div className="pill">Objective. Defensible. Operationally Sound.</div>
+              <h1 className="hero-title">Build a data-driven tryout system your club can defend.</h1>
+              <p className="hero-text">
+                Performance Elite Volleyball Consulting helps Mid-Atlantic youth volleyball clubs reduce subjectivity,
+                improve roster accuracy, and create cleaner systems for evaluations, communication, and operations.
+              </p>
+              <div className="hero-actions">
+                <a href="#services" className="btn btn-gold">Explore Services</a>
+                <a href="#pricing" className="btn btn-outline">View Packages</a>
+              </div>
+              <div className="stats-grid">
+                <div className="stat-card"><div className="stat-value">24–48 hr</div><div className="stat-label">Offer timeline structures</div></div>
+                <div className="stat-card"><div className="stat-value">6</div><div className="stat-label">Core evaluation categories</div></div>
+                <div className="stat-card"><div className="stat-value">1 System</div><div className="stat-label">For clarity, consistency, and trust</div></div>
+              </div>
+            </div>
+
+            <div className="hero-side-grid">
+              <PhotoCard title="Tryouts With Structure" subtitle="Volleyball-focused visuals, stronger presentation, and clearer differentiation for club directors." tone="dark" />
+              <div className="glass-card">
+                <div className="card-header-row">
+                  <div className="section-chip-row">
+                    <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+                    <div className="section-chip">The Problem</div>
+                  </div>
+                  <VolleyballGraphic className="mini-ball" />
+                </div>
+                <div className="problem-grid">
+                  {problems.map((item) => (
+                    <div key={item} className="problem-item">{item}</div>
+                  ))}
+                </div>
+              </div>
+              <div className="result-card">
+                <div className="result-label">The Result</div>
+                <p>
+                  A structured process with scoring consistency, coach calibration, clearer communication, and stronger program credibility.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section container" id="services">
+          <div className="section-head-copy max-3">
+            <div className="section-chip-row">
+              <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+              <div className="section-chip light">Services</div>
+            </div>
+            <h2 className="section-title">Consulting built for club directors who need structure.</h2>
+            <p className="section-text">
+              Performance Elite combines volleyball expertise with systems-level operational strategy to help clubs make better decisions and run cleaner programs.
+            </p>
+          </div>
+          <div className="scarcity-pill">Limited to first 5 Mid-Atlantic clubs</div>
+          <div className="services-grid">
+            {sections.map((section, idx) => (
+              <div key={section.title} className="service-card">
+                <div className={`service-icon-wrap ${idx === 0 ? 'icon-gold' : idx === 1 ? 'icon-slate' : 'icon-gold-light'}`}>
+                  <VolleyballGraphic className="service-ball" dark={idx === 1} />
+                </div>
+                <h3>{section.title}</h3>
+                <p>{section.text}</p>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section className="section section-alt">
+          <div className="container two-col-layout">
+            <div className="panel white-panel">
+              <div className="section-chip-row">
+                <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+                <div className="section-chip light">Tryout System</div>
+              </div>
+              <h2 className="section-title">How the process works</h2>
+              <div className="flow-grid">
+                {['Check-In', 'Evaluate', 'Score', 'Rank', 'Offer'].map((step, index) => (
+                  <div key={step} className="flow-card">
+                    <div className="flow-number">{index + 1}</div>
+                    <div className="flow-step">{step}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="table-card">
+                <div className="table-head">Core Evaluation Categories</div>
+                <div className="table-body">
+                  {[
+                    ['Technical Skill', '25%'],
+                    ['Game IQ', '20%'],
+                    ['Athleticism', '15%'],
+                    ['Competitive Presence', '15%'],
+                    ['Coachability', '15%'],
+                    ['Communication', '10%'],
+                  ].map(([label, weight]) => (
+                    <div className="table-row" key={label}>
+                      <span>{label}</span>
+                      <strong>{weight}</strong>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="right-stack">
+              <CourtGraphic />
+              <div className="panel dark-panel">
+                <div className="panel-top-row">
+                  <div>
+                    <div className="section-chip gold-text">Differentiator</div>
+                    <h3 className="panel-title white">Evaluator variance tracking</h3>
+                  </div>
+                  <VolleyballGraphic className="panel-ball" />
+                </div>
+                <p className="panel-copy muted">
+                  Identify scoring bias, coach inconsistency, and outlier evaluations before final offers go out.
+                </p>
+                <div className="bar-list">
+                  {[
+                    ['Coach A', 30],
+                    ['Coach B', 85],
+                    ['Coach C', 38],
+                  ].map(([name, value]) => (
+                    <div key={name} className="bar-item">
+                      <div className="bar-head"><span>{name}</span><span className="gold-strong">{value / 100}</span></div>
+                      <div className="bar-track"><div className="bar-fill" style={{ width: `${value}%` }} /></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="panel white-panel">
+                <div className="section-chip-row">
+                  <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+                  <div className="section-chip light">Outcome</div>
+                </div>
+                <h3 className="panel-title">What clubs gain</h3>
+                <div className="outcome-grid">
+                  {outcomes.map((item) => (
+                    <div key={item} className="outcome-item">{item}</div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section className="section container">
+          <div className="three-photo-grid">
+            <PhotoCard title="Club Leadership" subtitle="Professional systems for directors who need clarity, structure, and clean communication." tone="light" />
+            <PhotoCard title="Tryout Evaluation" subtitle="Better scoring, better documentation, better roster outcomes." tone="dark" />
+            <PhotoCard title="Program Growth" subtitle="Operational support that helps clubs scale with confidence." tone="light" />
+          </div>
+          <div className="authority-grid">
+            <div>
+              <div className="section-chip-row">
+                <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+                <div className="section-chip light">Authority</div>
+              </div>
+              <h2 className="section-title">Top tryout mistakes clubs make</h2>
+              <p className="section-text">
+                Most tryout problems are not talent problems. They are structure, communication, and consistency problems.
+              </p>
+              <div className="takeaway-card">
+                <div className="section-chip-row">
+                  <VolleyballGraphic className="mini-ball" />
+                  <div className="takeaway-label">Key Takeaway</div>
+                </div>
+                <p>
+                  Structured, data-driven, coach-aligned tryouts protect the club, improve athlete placement, and reduce conflict.
+                </p>
+              </div>
+            </div>
+            <div className="mistakes-grid">
+              {mistakes.map((mistake, index) => (
+                <div key={mistake} className="mistake-card">
+                  <div className="mistake-number">{index + 1}</div>
+                  <p>{mistake}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="pricing-section" id="pricing">
+          <div className="container">
+            <div className="max-3">
+              <div className="section-chip-row">
+                <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+                <div className="section-chip gold-text">Fall 2026 Tryout Cycle Readiness</div>
+              </div>
+              <h2 className="section-title white">Secure your system before Fall 2026 tryouts begin.</h2>
+              <p className="section-text muted">
+                Clubs that implement early go into tryouts with clarity, alignment, and confidence. Limited introductory pricing available for Fall 2026 rollout.
+              </p>
+            </div>
+            <div className="pricing-grid">
+              {pricing.map((plan) => (
+                <div key={plan.name} className={`price-card ${plan.featured ? 'featured' : ''}`}>
+                  <div className="price-head-row">
+                    <span className={`price-name ${plan.featured ? 'featured-text' : 'gold-text'}`}>{plan.name}</span>
+                    <VolleyballGraphic className="pricing-ball" dark={!plan.featured} />
+                  </div>
+                  <div className="price-old">{plan.price}</div>
+                  <div className="price-intro">{plan.intro}</div>
+                  <div className="price-badge">Limited Introductory Pricing</div>
+                  <p className="price-desc">{plan.desc}</p>
+                  <div className="price-footer">
+                    {plan.featured ? 'Most complete system rollout' : 'Built for practical execution'}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="contact-section section container" id="contact">
+          <div className="contact-shell">
+            <div>
+              <div className="section-chip-row">
+                <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="mini-logo" />
+                <div className="section-chip gold-text">Next Step</div>
+              </div>
+              <h2 className="section-title white">Book a 20-minute consultation.</h2>
+              <p className="section-text muted">
+                Review your current tryout process, identify gaps, and determine whether a pilot implementation is the right next move for your club.
+              </p>
+              <div className="two-photo-grid">
+                <PhotoCard title="Club Inquiry" subtitle="Use the form to share your current system, pain points, and goals." tone="dark" />
+                <PhotoCard title="Performance Elite" subtitle="Professional support for clubs that want structure and credibility." tone="light" />
+              </div>
+              <div className="form-note">
+                This contact form is wired for FormSubmit. On the first submission, confirm your email address once, and after that, inquiries will be sent directly to your inbox.
+              </div>
+            </div>
+
+            <div className="contact-card">
+              <div className="contact-head">
+                <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="contact-logo" />
+                <div>
+                  <div className="contact-title">Contact Performance Elite</div>
+                  <div className="contact-subtitle">Tell us about your club and current tryout process.</div>
+                </div>
+              </div>
+
+              <form
+                action="https://formsubmit.co/performanceelitevolleyball@gmail.com"
+                method="POST"
+                className="contact-form"
+              >
+                <input type="hidden" name="_subject" value="New Performance Elite website inquiry" />
+                <input type="hidden" name="_template" value="table" />
+                <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_next" value="https://yourdomain.com/thank-you" />
+                <input type="hidden" name="_autoresponse" value="Thank you for reaching out to Performance Elite Volleyball Consulting. We received your inquiry and will follow up shortly." />
+                <input type="text" name="_honey" className="hidden" tabIndex={-1} autoComplete="off" />
+
+                <div className="form-grid two">
+                  <label className="field">
+                    <span>Name</span>
+                    <input type="text" name="name" required placeholder="Your full name" />
+                  </label>
+                  <label className="field">
+                    <span>Email</span>
+                    <input type="email" name="email" required placeholder="you@club.org" />
+                  </label>
+                </div>
+
+                <div className="form-grid two">
+                  <label className="field">
+                    <span>Phone</span>
+                    <input type="tel" name="phone" placeholder="(571) 276-0149" />
+                  </label>
+                  <label className="field">
+                    <span>Club Name</span>
+                    <input type="text" name="club" placeholder="Your club name" />
+                  </label>
+                </div>
+
+                <label className="field">
+                  <span>What help are you looking for?</span>
+                  <select name="service_interest" defaultValue="">
+                    <option value="" disabled>Select a service</option>
+                    <option value="Tryout System Design">Tryout System Design</option>
+                    <option value="Club Operations Audit">Club Operations Audit</option>
+                    <option value="Implementation Support">Implementation Support</option>
+                    <option value="Not Sure Yet">Not Sure Yet</option>
+                  </select>
+                </label>
+
+                <label className="field">
+                  <span>Message</span>
+                  <textarea
+                    name="message"
+                    required
+                    rows="5"
+                    placeholder="Tell us about your current tryout process, parent communication challenges, or operational goals."
+                  />
+                </label>
+
+                <button type="submit" className="btn btn-dark btn-full">Send Inquiry</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+function ThankYouPage() {
+  return (
+    <div className="thankyou-page">
+      <div className="thankyou-card">
+        <img src="/pevc-logo.png" alt="Performance Elite Volleyball Consulting logo" className="thankyou-logo" />
+        <h1>You're All Set.</h1>
+        <p>
+          Thank you for reaching out to Performance Elite Volleyball Consulting. We’ve received your information and will review your club’s needs shortly.
+        </p>
+        <p>
+          You can expect a follow-up within 24 hours to discuss your tryout system, identify opportunities, and outline next steps for Fall 2026 readiness.
+        </p>
+        <Link to="/" className="btn btn-gold">Return to Website</Link>
+        <div className="thankyou-foot">Performance Elite Volleyball Consulting | Mid-Atlantic Club Performance</div>
+      </div>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/thank-you" element={<ThankYouPage />} />
+    </Routes>
+  );
+}
