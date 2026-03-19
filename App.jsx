@@ -1005,3 +1005,66 @@ const inputStyle = {
   background: "#ffffff",
   boxSizing: "border-box",
 };
+export function AboutPage() {
+  return (
+    <div style={{ fontFamily: "Inter, sans-serif", padding: "60px 20px", maxWidth: 900, margin: "0 auto" }}>
+      
+      <div style={{ textAlign: "center", marginBottom: 40 }}>
+        <img src="PEVC-LOGO.png" style={{ height: 80 }} />
+        <h1 style={{ fontSize: 42, fontWeight: 900, marginTop: 20 }}>
+          About Performance Elite Volleyball Consulting
+        </h1>
+      </div>
+
+      <p style={{ fontSize: 18, lineHeight: 1.7 }}>
+        Performance Elite Volleyball Consulting was built on years of experience in competitive volleyball, club operations, and program development. Our mission is simple: help clubs build structured, defensible systems that improve athlete placement, reduce conflict, and increase long-term program success.
+      </p>
+
+      <h2 style={{ marginTop: 40 }}>Background & Experience</h2>
+      <p style={{ lineHeight: 1.7 }}>
+        With over a decade of experience in competitive volleyball, coaching, and club operations, Performance Elite brings a unique combination of on-court expertise and operational leadership. Having coached at multiple levels and worked within high-level club environments, we understand both the athletic and administrative sides of running a successful program.
+      </p>
+
+      <h2 style={{ marginTop: 40 }}>Club Growth & Revenue Development</h2>
+      <p style={{ lineHeight: 1.7 }}>
+        Beyond coaching, our experience includes building and scaling revenue-generating volleyball programs. This includes:
+      </p>
+
+      <ul style={{ lineHeight: 1.8 }}>
+        <li>Intramural leagues designed to drive consistent recurring revenue</li>
+        <li>Open gym programming that increases player engagement and retention</li>
+        <li>Camps and clinics structured for both development and profitability</li>
+        <li>Program expansion strategies that maximize facility usage</li>
+      </ul>
+
+      <h2 style={{ marginTop: 40 }}>Why Performance Elite</h2>
+      <p style={{ lineHeight: 1.7 }}>
+        Most clubs struggle not because of talent, but because of inconsistent systems, unclear evaluation processes, and lack of structure. Performance Elite focuses on solving those problems by implementing:
+      </p>
+
+      <ul style={{ lineHeight: 1.8 }}>
+        <li>Data-driven tryout systems</li>
+        <li>Standardized evaluation frameworks</li>
+        <li>Coach calibration processes</li>
+        <li>Clear and defensible decision-making structures</li>
+      </ul>
+
+      <h2 style={{ marginTop: 40 }}>Our Approach</h2>
+      <p style={{ lineHeight: 1.7 }}>
+        We don’t believe in overcomplicating systems. Our approach is to build practical, repeatable frameworks that clubs can execute year after year — improving clarity for staff, transparency for families, and confidence for leadership.
+      </p>
+
+      <div style={{ marginTop: 50, textAlign: "center" }}>
+        <a href="/" style={{
+          background: "#111827",
+          color: "#fff",
+          padding: "12px 20px",
+          borderRadius: 8,
+          textDecoration: "none"
+        }}>
+          Back to Home
+        </a>
+      </div>
+    </div>
+  );
+}
