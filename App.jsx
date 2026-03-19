@@ -909,7 +909,7 @@ export default function App() {
                 lineHeight: 1.8,
               }}
             >
-              This contact form is wired through FormSubmit and will email submissions directly to your inbox after your initial FormSubmit confirmation.
+              Contact: Email - info@performanceelitevolleyball.com or Call (571)276-0149.
             </div>
           </div>
 
