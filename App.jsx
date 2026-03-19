@@ -987,11 +987,17 @@ export default function App() {
               >
                 Send Inquiry
               </button>
-            </form>
-          </div>
-        </div>
-      </section>
-    </div>
+</form>
+
+<div style={{ marginTop: "20px", lineHeight: "1.8" }}>
+  <p><strong>Email:</strong> info@performanceelitevolleyball.com</p>
+  <p><strong>Phone:</strong> (571) 276-0149</p>
+</div>
+
+</div>
+</div>
+</section>
+</div>
   );
 }
 
