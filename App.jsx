@@ -1,4 +1,5 @@
-export default function App() {
+import { Routes, Route } from "react-router-dom";
+function HomePage() {
   const liveUrl = "https://performance-elite-website-ii71.vercel.app";
 
   const sectionTitle = (eyebrow, title, subtitle) => (
@@ -247,20 +248,34 @@ export default function App() {
             </div>
           </div>
 
-          <a
-            href="#contact"
-            style={{
-              background: "#0f172a",
-              color: "#ffffff",
-              textDecoration: "none",
-              padding: "12px 18px",
-              borderRadius: 16,
-              fontWeight: 800,
-              fontSize: 14,
-            }}
-          >
-            Book a Call
-          </a>
+          <div style={{ display: "flex", gap: 16, alignItems: "center" }}>
+  <a
+    href="/about"
+    style={{
+      color: "#0f172a",
+      textDecoration: "none",
+      fontWeight: 800,
+      fontSize: 14,
+    }}
+  >
+    About
+  </a>
+
+  <a
+    href="#contact"
+    style={{
+      background: "#0f172a",
+      color: "#ffffff",
+      textDecoration: "none",
+      padding: "12px 18px",
+      borderRadius: 16,
+      fontWeight: 800,
+      fontSize: 14,
+    }}
+  >
+    Book a Call
+  </a>
+</div>
         </div>
       </header>
 
@@ -1016,7 +1031,7 @@ export function AboutPage() {
     <div style={{ fontFamily: "Inter, sans-serif", padding: "60px 20px", maxWidth: 900, margin: "0 auto" }}>
       
       <div style={{ textAlign: "center", marginBottom: 40 }}>
-        <img src="PEVC-LOGO.png" alt="Performance Elite Volleyball Consulting Logo" style={{ height: 80 }} />
+        <img src="/PEVC-LOGO.png" alt="Performance Elite Volleyball Consulting Logo" style={{ height: 80 }} />
         <h1 style={{ fontSize: 42, fontWeight: 900, marginTop: 20 }}>
           About Performance Elite Volleyball Consulting
         </h1>
@@ -1077,5 +1092,13 @@ export function AboutPage() {
         </a>
       </div>
     </div>
+  );
+}
+export default function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/about" element={<AboutPage />} />
+    </Routes>
   );
 }
